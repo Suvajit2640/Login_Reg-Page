@@ -1,0 +1,122 @@
+<%- include('partials/header.ejs') %>
+  <%- include('partials/nav.ejs') %>
+
+    <body>
+
+      
+        <% if (nam) { %>
+          <aside>
+            <div class="sidebar ">
+
+              <div class="both">
+                <div class="user">
+                  <img src="/svgs/face.svg" class="userlogo invert " alt="" />
+                </div>
+                <% if (nam) { %>
+                  <h1>
+                    <%= nam %>
+                  </h1>
+                  <% } else { %>
+                    <h1>User</h1>
+                    <% } %>
+
+              </div>
+              <hr class="invert" />
+              <div class="both">
+                <div class="user">
+                  <img src="/svgs/user.svg" class="userlogo invert" alt="" />
+                </div>
+                <h1><a href="/profile" style="color: white;text-decoration: none;">Your Profile</a></h1>
+              </div>
+              <div class="both">
+                <div class="user">
+                  <img src="/svgs/logout.svg" class="userlogo invert" alt="" />
+                </div>
+
+                <li style="list-style: none;"><a href="/logout" style="color: white;text-decoration: none;">Logout</a>
+                </li>
+              </div>
+          </div>
+          </aside>
+
+
+          <% }  %>
+
+
+
+
+            
+
+      
+      <section id="home">
+        <h1 class="primaryhead" id="homeheading">Welcome to Baper Hotel</h1>
+        <p class="para">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta non
+          libero mollitia.
+        </p>
+        <p class="para">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+
+      </section>
+      <section class="services-container" id="services1">
+        <h1 class="primaryhead center">Our Services </h1>
+        <div id="services">
+          <div class="box">
+            <img src="./All images/images/3.jpg" alt="image not rendering" />
+            <h2 class="secondaryhead center">Food Ordering</h2>
+            <p class="center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+              architecto repudiandae ducimus officia. Nobis in doloremque rem!
+              Tenetur consequuntur minima quidem. Voluptates eum doloribus facilis
+              provident, corporis rem, dolor aperiam impedit natus voluptatibus
+              dolore!
+            </p>
+          </div>
+          <div class="box">
+            <img src="./All images/images/2.png" alt="" />
+            <h2 class="secondaryhead center">Bulk Ordering</h2>
+            <p class="center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+              architecto repudiandae ducimus officia. Nobis in doloremque rem!
+              Tenetur consequuntur minima quidem. Voluptates eum doloribus facilis
+              provident, corporis rem, dolor aperiam impedit natus voluptatibus
+              dolore!
+            </p>
+          </div>
+          <div class="box">
+            <img src="./All images/images/1.jpg" alt="" />
+            <h2 class="secondaryhead center">Food Delivery</h2>
+            <p class="center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+              architecto repudiandae ducimus officia. Nobis in doloremque rem!
+              Tenetur consequuntur minima quidem. Voluptates eum doloribus facilis
+              provident, corporis rem, dolor aperiam impedit natus voluptatibus
+              dolore!
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="clientsection" id="client">
+        <h1 class="primaryhead center">Our Clients</h1>
+        <div id="clients">
+          <div class="item">
+            <img src="./All images/logos/logo1.jpg" alt="" />
+          </div>
+          <div class="item">
+            <img src="./All images/logos/logo2.jpg" alt="" />
+          </div>
+          <div class="item">
+            <img src="./All images/logos/logo3.jpg" alt="" />
+          </div>
+          <div class="item">
+            <img src="./All images/logos/logo4.png" alt="" />
+          </div>
+        </div>
+      </section>
+      <%- include('partials/footer.ejs') %>
+
+        <script src="/script/script.js"></script>
+    </body>
+
+    </html>

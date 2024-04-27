@@ -1,0 +1,52 @@
+<%- include('partials/header.ejs') %>
+
+
+
+    <body>
+        <main>
+            <div class="profilebox">
+                <h1>Your Profile</h1>
+                <ul>
+
+                    <li>
+                        <div class="both">
+                            <h2 id="nam">Name:</h2>
+                            <h3><%= nam %></h3>
+                            
+                        </div>
+
+                        
+                        <img src="/svgs/edit.svg" class="userlogo editbtn " alt="" />
+                    </li>
+                    <li>
+                        <div class="both">
+                            <h2 id="Email">Email:</h2>
+                            <h3><%= Email%></h3>
+                        </div>
+                       
+                        <img src="/svgs/edit.svg" class="userlogo editbtn" alt="" />
+                    </li>
+                    <li>
+                        <div class="both">
+
+                            <h2 id="Number">Ph No.: </h2>
+                            <h3><%= Number %></h3>
+                        </div>
+                        <img src="/svgs/edit.svg" class="userlogo editbtn" alt="" />
+                    </li>
+                   
+
+                </ul>
+                <div class="Delete"><button>Delete Account</button></div>
+            </div>
+            <div class="btns">
+                <a href="/">Back</a>
+                <a  class="done">Done</a>
+            </div>
+            
+
+        </main>
+
+             <script src="/script/profile_crud.js"></script>
+            <script src="/script/script.js"></script>
+    </body>

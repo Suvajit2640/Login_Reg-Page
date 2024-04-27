@@ -1,0 +1,99 @@
+/* body{background-color: red;} */
+/* Navigation Section   */
+.navbar {
+  /* flex-direction: column; */
+  justify-content: space-around;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#logo{
+    margin: 0px;
+    padding: 0px;
+}
+ul li {
+  margin: 5px;
+}
+ul li a {
+  font-size: 1rem;
+  padding-bottom: 2px;
+  display: flex;
+}
+/* Home Section  */
+#home {
+  padding: 0px;
+  height: 390px;
+  align-items: center;
+}
+#home::before {
+  height: 45%;
+}
+
+/* Services Section  */
+#services {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#services .box {
+  padding: 1px;
+  margin: 5px;
+  border-radius: 5px;
+}
+#services .box img {
+  height: 100px;
+}
+#services .box h2 {
+  font-size: 1rem;
+}
+/* Client Section */
+.clientsection {
+  height: 200px;
+}
+#clients img {
+  height: 2rem;
+  padding: 3px;
+  /* display: flex; */
+}
+.clientsection::before {
+  height: 170px;
+}
+.item {
+  display: flex;
+}
+/* Contact Section  */
+.primaryhead{
+    position: relative;
+}
+.all{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#Register {
+
+  justify-content:space-around;
+
+  /* align-items: center; */
+}
+#Registerbox{
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+}
+
+/* Footer Section  */
+
+/* utility classes */
+.para {
+  font-size: 1rem;
+}
+.primaryhead {
+  font-size: 1.8rem;
+}
+.btn {
+  font-size: 1rem;
+  margin: 5px;
+  padding: 2px;
+}

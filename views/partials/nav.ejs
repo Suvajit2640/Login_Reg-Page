@@ -1,0 +1,31 @@
+<nav class="navbar">
+    <div class="leftnav">
+      <div id="logo">
+        <img src="./All images/logos/logo.png" alt="This is logo" />
+      </div>
+
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services1">Services</a></li>
+        <li><a href="#client">Clients</a></li>
+      </ul>
+    </div>
+
+    <div class="rightnav">
+      <ul>
+        <% if (nam) { %>
+            <li>Welcome, <%= nam %></li>
+        <% } else { %>
+            <li><a href="/register">Register  </a></li>
+            or
+            <li><a href="/login">Login</a></li>
+        <% } %>
+    </ul>
+    <% if (nam) { %>
+      <div class="user">
+        <img src="/svgs/user.svg" class="invert userlogo hover" alt="" />
+      </div>
+  <% }  %>
+      
+    </div>
+  </nav>

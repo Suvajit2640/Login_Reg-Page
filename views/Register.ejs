@@ -1,0 +1,58 @@
+<%- include('partials/header.ejs') %>
+
+
+<div class="all">
+    <section id="Register">
+        <h1 class="primaryhead center">Register</h1>
+        <div id="Registerbox">
+          <form action="/register" method="post">
+            <div class="formgroup">
+              <label for="Name">Name:</label>
+              <input type="text" id="name"name="nam" placeholder="Enter your name" required />
+            </div>
+            <div class="formgroup">
+              <label for="Email">Email:</label>
+              <input type="Email" name="Email" id="Email" placeholder="Enter your Email" />
+            </div>
+            <div class="formgroup">
+              <label for="Phone Number">Contact Number:</label>
+              <input
+                type="Phone Number"
+                id="Phone Number"
+                placeholder="Enter your Phone Number"
+                name="Number"
+              />
+            </div>
+            <div class="formgroup">
+              <label for="dob">Date of Birth:</label>
+              <input type="date" id="dob" placeholder="Enter your Date Of Birth" name="DOB"/>
+            </div>
+            <div class="formgroup">
+              <label for="Password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your Password"
+                name="password"
+              />
+            </div>
+            <div class="formgroup">
+              <label for="Password">Confirm Password:</label>
+              <input
+                name="confirmpassword"
+                type="password"
+                id="password"
+                placeholder="Re enter your Password"
+              />
+            </div>
+            <div class="BtnSub" >
+              <button  type="submit" class="Registerbtn">Submit</button>
+            </div>
+          </form>
+        </div>
+
+</div>
+
+<%- include("partials/footer.ejs") %>
+
+</section>
