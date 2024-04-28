@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
     minLength:3
-
+    
   },
   Email: {
     type: String,
@@ -30,7 +30,14 @@ const userSchema = new mongoose.Schema({
     type: Number,
     minLength: 10,
     required: true,
-    unique: true
+    unique: true,
+    validate: {
+      validator: function(value) {
+          // Check if the phone number has at least 10 digits
+          return value.toString().length >= 10;
+      },
+      message: "Invalid Phone Number"
+  }
 
   },
   DOB: {

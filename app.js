@@ -21,37 +21,28 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 app.get("/", async (req, res) => {
     if (Object.keys(req.cookies).length === 0) {
-        // console.log('req.cookie in index', req.cookies);
-
         res.render("index", { nam: "" })
         return;
     }
     else {
 
-        // console.log('req.cookies.jwt in /',req.cookies.jwt);
-
         const verifyuser = jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
 
         const userdata = await User.findOne({ _id: verifyuser._id })
-        // console.log('userdata',userdata);
+
+
 
         if (!userdata) {
-            // Handle user not found
+
             console.log("User not found");
-            res.render("index", { nam: "" }); // Render with empty name
+            res.render("index", { nam: "" });
         }
         else if (userdata.tokens == "") {
-            return res.render("index", { nam: "" }); // Render with empty name
+            return res.render("index", { nam: "" });
         }
         else {
-            // If user is found, render the index template with the user's name
-
-
             return res.render("index", userdata);
         }
-
-
-
 
     }
 
@@ -73,10 +64,10 @@ app.post("/register", async (req, res) => {
 
         const password = req.body.password;
         const cpassword = req.body.confirmpassword;
-        //   console.log('req.body',req.body);
+
 
         if (password === cpassword) {
-            // const hashpassword = await bcrypt.hash(password, 10)
+
 
 
             const registeruser = new User({
@@ -87,27 +78,22 @@ app.post("/register", async (req, res) => {
                 password: password
             })
             const token = await registeruser.generatetoken();
-            // console.log('token', token);
+
             res.cookie("jwt", token)
 
             await registeruser.save();
 
             res.redirect("/");
-
         }
         else {
             res.send("Password Mismatched")
-
         }
     }
 
     catch (error) {
         res.status(400).send({ error: error.message });
 
-
     }
-
-
 })
 
 app.post("/login", async (req, res) => {
@@ -136,17 +122,11 @@ app.post("/login", async (req, res) => {
     }
 })
 app.get("/profile", auth, async (req, res) => {
-    // console.log('req.user',req.user);
-
     res.render("profile", req.user)
 })
 app.get("/logout", auth, async (req, res) => {
     try {
-
-        // console.log('req.user', req.user.tokens);
         res.clearCookie("jwt")
-
-
         // single device
         // req.user.tokens = req.user.tokens.filter((currElem) => {
         //     return currElem.token === req.token;
@@ -155,7 +135,6 @@ app.get("/logout", auth, async (req, res) => {
         req.user.tokens = [];
         await req.user.save();
 
-        // console.log('req.user', req.user);
         res.redirect("/")
 
 
@@ -166,17 +145,17 @@ app.get("/logout", auth, async (req, res) => {
 })
 app.post("/profile-update", auth, async (req, res) => {
     try {
-        // console.log('req', req.body);
+        
         const updated_data = req.body;
         const userid = await req.user._id;
         const update = { [updated_data.field]: updated_data.value }
-        
-        if (!updated_data.value) {
-            return res.status(400).json({ error: " cannot be empty" });
-        } 
-        const updateuser = await User.findByIdAndUpdate(userid, update, { new: true })
 
-        //  console.log(updateuser)
+        if (!updated_data.value) {
+            return res.status(500).json({ error: " cannot be empty" });
+        }
+        const updateuser = await User.findByIdAndUpdate(userid, update, { new: true, runValidators: true, context: 'query' })
+
+        console.log(updateuser)
         res.status(200).json(updateuser);
     }
     catch (error) {
